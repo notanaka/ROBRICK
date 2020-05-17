@@ -1,0 +1,815 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="92Jlk3UTs9XYGR-6wdsl">x</variable>
+    <variable type="" id="cT1cv{@f|)zc5AKIAk.V">値</variable>
+    <variable type="" id="`u8q|zt(_6Nk{~FIA+Zw">取得明るさ</variable>
+    <variable type="" id="RX=fuyK9Y#lJRFlrVh7V">余り</variable>
+    <variable type="" id="{]]VL*2PWod@Z*?Czb()">千の位</variable>
+    <variable type="" id="yl)Qk_CE)Ih}/P2#MxJC">百の位</variable>
+    <variable type="" id=";8~maw!64zhci3II{|q_">十の位</variable>
+    <variable type="" id="3;hHs0mIy6;@rE/(pRLT">一の位</variable>
+  </variables>
+  <block type="robohon_listenStart" id="Z(*c##XC`uN_2bq},5j." x="13" y="13">
+    <value name="KEYWORD">
+      <shadow type="text" id="r$!SU,xK?#C8qlPyM^Cf">
+        <field name="TEXT">アカルサオシエテ</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="robohon_speak" id="$($%KAAg%]p}qp#w/sBC">
+        <value name="WORD">
+          <shadow type="text" id="Yk*5*/5tN1ePL`K+V6[f">
+            <field name="TEXT">今の明るさを話すね</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="variables_set" id="Fru6[uEtZP5]cwzSpw?d">
+            <field name="VAR" id="`u8q|zt(_6Nk{~FIA+Zw" variabletype="">取得明るさ</field>
+            <value name="VALUE">
+              <block type="robohon_brightness" id="IhFp?/NU!Hnit;5y!hek"></block>
+            </value>
+            <next>
+              <block type="controls_if" id="MMq7z8yK]FNm,({Ke3~I">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="V-yc*dKaVD?@tB!LEy^j">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id=")#46iOk]gR2-CYib0@yy">
+                        <field name="VAR" id="`u8q|zt(_6Nk{~FIA+Zw" variabletype="">取得明るさ</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="W%v.E@o0709m2yO_*j+7">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="robohon_speak" id="=H|^=.s7q@NC^cNr+x-O">
+                    <value name="WORD">
+                      <shadow type="text" id="?;dZ:(~j9:l1.TBupNnf">
+                        <field name="TEXT">明るさは0</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="procedures_callnoreturn" id="cYt}0Hhp@57xp;LxE`(8">
+                    <mutation name="数値分解">
+                      <arg name="x"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id=":-PIDFy[+kbRb4Nl6{{f">
+                        <field name="VAR" id="`u8q|zt(_6Nk{~FIA+Zw" variabletype="">取得明るさ</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="procedures_callnoreturn" id="@r.?2Tpk0-2L|1Ck{snA">
+                        <mutation name="計算結果"></mutation>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="robohon_speak" id="2Gm~$00h:*fA@uB,P-aV">
+                    <value name="WORD">
+                      <shadow type="text" id="4wg{L+wyivFYe(yc2ygc">
+                        <field name="TEXT">だよ。</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="fUMZiUJ%c2(?sMd]hbiA" x="13" y="363">
+    <mutation>
+      <arg name="x" varid="92Jlk3UTs9XYGR-6wdsl"></arg>
+    </mutation>
+    <field name="NAME">数値分解</field>
+    <comment pinned="false" h="80" w="160">この関数の説明…</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="{m%le5zUqi+lR3Ap~PYc">
+        <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+        <value name="VALUE">
+          <block type="variables_get" id="j)vo//`*FQS(RnoRR9z[">
+            <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id=";$HtknhIADrbc;yW?r|#">
+            <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+            <value name="VALUE">
+              <block type="math_modulo" id="N_FtQxUV{`f5`B:rI[Hb">
+                <value name="DIVIDEND">
+                  <shadow type="math_number" id="Hifugn[cTxppw=F4TC%e">
+                    <field name="NUM">64</field>
+                  </shadow>
+                  <block type="variables_get" id="?WYhFI?J=:4.uxXxkbgy">
+                    <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                  </block>
+                </value>
+                <value name="DIVISOR">
+                  <shadow type="math_number" id="an/%v!BGko3eW;Qa9-Ys">
+                    <field name="NUM">1000</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="_*I6Pi/d9FXnWfimcD`*">
+                <field name="VAR" id="{]]VL*2PWod@Z*?Czb()" variabletype="">千の位</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id="W.Pp0z@46FGH9((01FlW">
+                    <field name="OP">DIVIDE</field>
+                    <value name="A">
+                      <shadow type="math_number" id="hbjf#{~gyMG,wPi*ZUD+">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="math_arithmetic" id="9oyC-LgyeE5~2jU.`^/?">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <shadow type="math_number" id="yN?WwgNc!euaeLq^B,IM">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get" id="FySdu_Y.t}~Bbl;a@S=`">
+                            <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number" id="Tr!zfY~08v_-.Ga4M?9$">
+                            <field name="NUM">100</field>
+                          </shadow>
+                          <block type="variables_get" id="d7a^Zva^Q({p+4`8EW8c">
+                            <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="math_number" id="5KmfQQ_kPkiETaLU*)Q)">
+                        <field name="NUM">1000</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="q$$B{-tVyotJJ/F?RAd5">
+                    <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="?,MF]Kl+15l+ZqKaU`$s">
+                        <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="!WP)-UeGYkX1+hsz9sO8">
+                        <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                        <value name="VALUE">
+                          <block type="math_modulo" id="A`#]L*(tpSTSnsKwGgp=">
+                            <value name="DIVIDEND">
+                              <shadow type="math_number" id="Hifugn[cTxppw=F4TC%e">
+                                <field name="NUM">64</field>
+                              </shadow>
+                              <block type="variables_get" id="Us1^#oc#%b?+[Q@2x5KP">
+                                <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <shadow type="math_number" id="pD|PVK@.+SHMYqAu:v5.">
+                                <field name="NUM">100</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="Z-[^v;lbDB7-yT+ABNXI">
+                            <field name="VAR" id="yl)Qk_CE)Ih}/P2#MxJC" variabletype="">百の位</field>
+                            <value name="VALUE">
+                              <block type="math_arithmetic" id="nLIH@:TG.z-1f^w3vR@P">
+                                <field name="OP">DIVIDE</field>
+                                <value name="A">
+                                  <shadow type="math_number" id="hbjf#{~gyMG,wPi*ZUD+">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                  <block type="math_arithmetic" id="*(_V3KAA#cL;)B/+Bef2">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id="yN?WwgNc!euaeLq^B,IM">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="variables_get" id="lA#lyjDH#!~yKV(dSY`1">
+                                        <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="Tr!zfY~08v_-.Ga4M?9$">
+                                        <field name="NUM">100</field>
+                                      </shadow>
+                                      <block type="variables_get" id="lHxJ7;5A~tVis,NdEO%G">
+                                        <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="math_number" id="gUvQvLhrkDy5aTbWZT-l">
+                                    <field name="NUM">100</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="8D!AqRq9dj/Y]UV^-LEa">
+                                <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                <value name="VALUE">
+                                  <block type="variables_get" id=":~oKZT9Sk3zG[/_zlk{:">
+                                    <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="Fb?+9adwyA@P3zkA@2Qx">
+                                    <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                    <value name="VALUE">
+                                      <block type="math_modulo" id="7q6]D/._EgXYZ-tevt3|">
+                                        <value name="DIVIDEND">
+                                          <shadow type="math_number" id="Hifugn[cTxppw=F4TC%e">
+                                            <field name="NUM">64</field>
+                                          </shadow>
+                                          <block type="variables_get" id="%:(W}ouj*sU=]zrGU!$Q">
+                                            <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                          </block>
+                                        </value>
+                                        <value name="DIVISOR">
+                                          <shadow type="math_number" id="80w!bOE^37=0okpBlsvl">
+                                            <field name="NUM">10</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="F*?YiKx$^}0M]L{AC2OU">
+                                        <field name="VAR" id=";8~maw!64zhci3II{|q_" variabletype="">十の位</field>
+                                        <value name="VALUE">
+                                          <block type="math_arithmetic" id="q),vN/_yTpSGKa27Rus0">
+                                            <field name="OP">DIVIDE</field>
+                                            <value name="A">
+                                              <shadow type="math_number" id="hbjf#{~gyMG,wPi*ZUD+">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="math_arithmetic" id="bl2R}F9wXIw{SM%qLrf]">
+                                                <field name="OP">MINUS</field>
+                                                <value name="A">
+                                                  <shadow type="math_number" id="yN?WwgNc!euaeLq^B,IM">
+                                                    <field name="NUM">1</field>
+                                                  </shadow>
+                                                  <block type="variables_get" id="F0rQGvRa/ZugB#+zs%bx">
+                                                    <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <shadow type="math_number" id="Tr!zfY~08v_-.Ga4M?9$">
+                                                    <field name="NUM">100</field>
+                                                  </shadow>
+                                                  <block type="variables_get" id="H`CFGf]LVeJrVM|R0;*;">
+                                                    <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="math_number" id="VC,?5;6caA7%NmY83N(u">
+                                                <field name="NUM">10</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="=N2Z5h?!x.fYrvKN(=AF">
+                                            <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                            <value name="VALUE">
+                                              <block type="variables_get" id="9y7`RI26C!XE]zEijJL{">
+                                                <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="variables_set" id="L.s2i7!0]+r4-]!yI,l~">
+                                                <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                                <value name="VALUE">
+                                                  <block type="math_modulo" id="UY/:fwL_-.aqXg2[;NH@">
+                                                    <value name="DIVIDEND">
+                                                      <shadow type="math_number" id="Hifugn[cTxppw=F4TC%e">
+                                                        <field name="NUM">64</field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="0,+sO`mL^FeW.RolO2Ou">
+                                                        <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="DIVISOR">
+                                                      <shadow type="math_number" id="dG%u[kYE!*u))=M@f%qs">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_set" id="JKsGkfGF@(j,vDbVl_/|">
+                                                    <field name="VAR" id="3;hHs0mIy6;@rE/(pRLT" variabletype="">一の位</field>
+                                                    <value name="VALUE">
+                                                      <block type="math_arithmetic" id="Z[SbBP}s7+il)svtoyXX">
+                                                        <field name="OP">DIVIDE</field>
+                                                        <value name="A">
+                                                          <shadow type="math_number" id="hbjf#{~gyMG,wPi*ZUD+">
+                                                            <field name="NUM">1</field>
+                                                          </shadow>
+                                                          <block type="math_arithmetic" id="aA5Y/:_PELj0)4xi?jGe">
+                                                            <field name="OP">MINUS</field>
+                                                            <value name="A">
+                                                              <shadow type="math_number" id="yN?WwgNc!euaeLq^B,IM">
+                                                                <field name="NUM">1</field>
+                                                              </shadow>
+                                                              <block type="variables_get" id="[rW#2_pJ{NuH=,NwzL1p">
+                                                                <field name="VAR" id="cT1cv{@f|)zc5AKIAk.V" variabletype="">値</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <shadow type="math_number" id="Tr!zfY~08v_-.Ga4M?9$">
+                                                                <field name="NUM">100</field>
+                                                              </shadow>
+                                                              <block type="variables_get" id="O$-!C^`yaF;/JNV$HVXh">
+                                                                <field name="VAR" id="RX=fuyK9Y#lJRFlrVh7V" variabletype="">余り</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <shadow type="math_number" id="%7AK#BPVJiNu)92c$y6K">
+                                                            <field name="NUM">1</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="SB44FHtjy+p(=JJJ?Nu[" x="13" y="863">
+    <field name="NAME">計算結果</field>
+    <comment pinned="false" h="80" w="160">この関数の説明…</comment>
+    <statement name="STACK">
+      <block type="controls_if" id=";oNybBG-MV9:n_O^pz7b">
+        <value name="IF0">
+          <block type="logic_compare" id="C4]1bzOZQO8vw-9v?=eG">
+            <field name="OP">NEQ</field>
+            <value name="A">
+              <block type="variables_get" id="Lb1n%%#!m-G%a%DL)[n8">
+                <field name="VAR" id="{]]VL*2PWod@Z*?Czb()" variabletype="">千の位</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="r8Ienw@4U;48l8l`SeuD">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="robohon_speak" id="a9m|It(A`)L*%]srneB{">
+            <value name="WORD">
+              <shadow type="text" id="X4ps@V7.lmue]xh+aych">
+                <field name="TEXT">千の位が</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="7Sg~NWGxpm^`+TGbjF=D">
+                <mutation name="0to9">
+                  <arg name="x"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="variables_get" id="q~,Y@xibw-9PwiTw/QD?">
+                    <field name="VAR" id="{]]VL*2PWod@Z*?Czb()" variabletype="">千の位</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="sO71ZW33cfcB@B--Lmil">
+            <value name="IF0">
+              <block type="logic_operation" id="i{C(r%|NZeFGU,wEXODl">
+                <field name="OP">OR</field>
+                <value name="A">
+                  <block type="logic_compare" id=":_.I.LhVy(Kgw}SB-m@@">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="j5s^MXi)s+P^LHOrg8:0">
+                        <field name="VAR" id="{]]VL*2PWod@Z*?Czb()" variabletype="">千の位</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="ui}Ay[~7b;=B[j.x`o05">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="logic_compare" id="T)6[Hi{IB;N|NY[TRd.]">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="Na[Nu#R_^,Z$dcQ/J8o?">
+                        <field name="VAR" id="yl)Qk_CE)Ih}/P2#MxJC" variabletype="">百の位</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="2dlmsOq|*Hg:3=*;03Vv">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="robohon_speak" id="P.g/4F-@sFR%v%$`n0~_">
+                <value name="WORD">
+                  <shadow type="text" id="%,c{+J7y+z9mIFh[k=Sk">
+                    <field name="TEXT">百の位が</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="Kou5]DZ8ayxrj*c86L);">
+                    <mutation name="0to9">
+                      <arg name="x"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="*^3qt!kwBcJIdob)aA}N">
+                        <field name="VAR" id="yl)Qk_CE)Ih}/P2#MxJC" variabletype="">百の位</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="robohon_speak" id="Xp#KYoi0QwxBM:@_Z@KQ">
+                <value name="WORD">
+                  <shadow type="text" id="f4aKC?=!(!Ul~nJeRIPy">
+                    <field name="TEXT">十の位が</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="V@c4mp.}@Jzmaw,%y3E|">
+                    <mutation name="0to9">
+                      <arg name="x"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="^~Eo/A~aQ=!}i042unuX">
+                        <field name="VAR" id=";8~maw!64zhci3II{|q_" variabletype="">十の位</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="robohon_speak" id="HC[HP%~.w`LK:jO{1l08">
+                        <value name="WORD">
+                          <shadow type="text" id="rq1yNXSHD]{LK9cTx4Z4">
+                            <field name="TEXT">一の位が</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="/RWwDTB`c[lS4IaN_[.+">
+                            <mutation name="0to9">
+                              <arg name="x"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="variables_get" id="*wPKS`GGAjW*Sf:oZ9l]">
+                                <field name="VAR" id="3;hHs0mIy6;@rE/(pRLT" variabletype="">一の位</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="Fs=BRo?YiPd=zT9_{[Fb" x="13" y="1388">
+    <mutation>
+      <arg name="x" varid="92Jlk3UTs9XYGR-6wdsl"></arg>
+    </mutation>
+    <field name="NAME">0to9</field>
+    <comment pinned="false" h="80" w="160">この関数の説明…</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="hmx4CtDvsAijK#4+H1kD">
+        <value name="IF0">
+          <block type="logic_compare" id="T7_%aw(-XYbN1}?UaYz5">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="~jUW`1hHZ3,0Qw.QE/3`">
+                <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="n,+2756d~I9`3g:MShW0">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="robohon_speak" id="+KTLS$k~)s?55dK0U)/C">
+            <value name="WORD">
+              <shadow type="text" id="Z:,bxm$u.SCwh0/fr#mZ">
+                <field name="TEXT">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="z%vi[,iNTni%ka.@J-Um">
+            <value name="IF0">
+              <block type="logic_compare" id="aPUd[qc92aGu*YY-uZ!k">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="PdQDIGYEMe*#,Dm8]}Yx">
+                    <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="cf{*=z3Phnbi=_=|:@n/">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="robohon_speak" id="GvL+Hy1+5V@#U=xcdv%_">
+                <value name="WORD">
+                  <shadow type="text" id="0YuB0~PeTMXc).@U9!#T">
+                    <field name="TEXT">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="Y?F5z_|_;Qvagj_pY^aJ">
+                <value name="IF0">
+                  <block type="logic_compare" id="t:h4=DF|Z6n`u=ag(0)V">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="?4J)G*Sj_jIyj,Ct@4$v">
+                        <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="BShl0Q`2R-Vlkp1mnkv^">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="robohon_speak" id=";sdlpEu)F]%J.t{GJ0nV">
+                    <value name="WORD">
+                      <shadow type="text" id="#sA,1I8;PIlHd}oI0oEQ">
+                        <field name="TEXT">2</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="%TEC:aMo(Y?(VJ(rW--(">
+                    <value name="IF0">
+                      <block type="logic_compare" id="]FtD5_A9t~;*);+QPBG.">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="TfXL.`_ESaT/}Dug+^Lt">
+                            <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="q#,D{MhKzV4RZ1Z4Vaq]">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="robohon_speak" id=".|zkE/Nn:[;a5O`{837s">
+                        <value name="WORD">
+                          <shadow type="text" id="^%01H]=pQ2T/}`Y8sSc0">
+                            <field name="TEXT">3</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="2lzEJ$NK%3UWy[t1!y^W">
+                        <value name="IF0">
+                          <block type="logic_compare" id="~;qP/T}^`6,V{9Xm]6;$">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="@139R}$HUp#zb:nFC+3-">
+                                <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="U7Py0_=y5CjXEIODF+#=">
+                                <field name="NUM">4</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="robohon_speak" id=")m]cOHQ10-17jdFP|~-J">
+                            <value name="WORD">
+                              <shadow type="text" id="CqC4tkHR)S1U_dOM$7Pd">
+                                <field name="TEXT">4</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="#~Y[s%^1NR+-uBb|6*0B">
+                            <value name="IF0">
+                              <block type="logic_compare" id="By2PCBFCmpuuU-+1,h!e">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="%I?L1$8XLdhtLU:E+JLA">
+                                    <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="PAy]qSI=gm6a1~fmcyyK">
+                                    <field name="NUM">5</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="robohon_speak" id="aAZ9_3Yxc[hdl~A[,09*">
+                                <value name="WORD">
+                                  <shadow type="text" id="_FJ$X:qnK8:ih=4Ha$V/">
+                                    <field name="TEXT">5</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="p2Yhzh`x?2k,#ipOVK^!">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="A1Vp$`,,v7S;.).d`gNt">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="z]Carw]a7u:i$=I=JgSc">
+                                        <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="aBiQ$ABnP/jLDf:f-BT8">
+                                        <field name="NUM">6</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="robohon_speak" id="2p^T,npqbGoS3j,c7lcS">
+                                    <value name="WORD">
+                                      <shadow type="text" id="Mm16xH11u`xQ#NZ@%:r:">
+                                        <field name="TEXT">6</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="controls_if" id="EHiJeS(;,CGj^x]MIy{F">
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="*-*HFcv`iQH^EDEMg:k|">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="m_TiOmvNVV1l+)8=5?e4">
+                                            <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="C3Ykhj-t~m9?I9Kn3F0m">
+                                            <field name="NUM">7</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="robohon_speak" id="`AxVj]~?pqn~tz^~d~xd">
+                                        <value name="WORD">
+                                          <shadow type="text" id="jzUYNqH6k4]PI7OKp|h6">
+                                            <field name="TEXT">7</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="controls_if" id="fEa[~LFK*Zws3[=vmc76">
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="^(DY4P}qRt!t[Xz]_{J/">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="FBGc1xMZ^/ANGP%{zO0O">
+                                                <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="XAp/IDf=2zqKN_u7q}U;">
+                                                <field name="NUM">8</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="robohon_speak" id="5=qM@z~tDs3-Z7H(S[GF">
+                                            <value name="WORD">
+                                              <shadow type="text" id="G~]g-Fnah-{OOKPx2;tu">
+                                                <field name="TEXT">8</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="controls_if" id="r3y4jc]+92hzR`y@WM_m">
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="J#7Gi:+ZFh5}[v$[_,Rc">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="variables_get" id="{i]TLkKej]aV!p=L0[OW">
+                                                    <field name="VAR" id="92Jlk3UTs9XYGR-6wdsl" variabletype="">x</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id="Z)^XRBa~gu*FX[=.+#bj">
+                                                    <field name="NUM">9</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="robohon_speak" id=".UJn-Oar(q$Cxwvt;O~~">
+                                                <value name="WORD">
+                                                  <shadow type="text" id="Otvp$J[%kBh$[V_=I)5d">
+                                                    <field name="TEXT">9</field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,101 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="robohon_listenStart" id="QVMRdjf~$f;_d}kWN#5l" x="52" y="31">
+    <value name="KEYWORD">
+      <shadow type="text" id="N?a1[j`b8bHrEsgYD}Bx">
+        <field name="TEXT">オタンジョウビオメデトウ</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="robohon_face_detection" id="G2JuKj:|rzwd|asWM4lD">
+        <field name="TIME">short</field>
+        <next>
+          <block type="controls_if" id="HfzCd9d#0i=93nGN3[V9">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="robohon_face_find" id="e@ou?EvT6W,1-_V,*eyJ"></block>
+            </value>
+            <statement name="DO0">
+              <block type="controls_if" id="NHm?WR0P|7IS(qi`]7h`">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="H`DK}Eso@P#gsH|}Tz-9">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="robohon_brightness" id=";$Ku`KN`yd=Fg/:3=|P3"></block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="5}jeJQzg0g:*O(:(/#CQ">
+                        <field name="NUM">50</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="robohon_speakonly" id="Me]te@~|.teES}H6Rx2H">
+                    <value name="WORD">
+                      <shadow type="text" id="feA{/60[c|%:eA{KDo07">
+                        <field name="TEXT">部屋が明るいけど、ケーキとろうそくの準備はできてるのかなぁ？</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="robohon_speakonly" id="v(XDS`m]aAe0@~j.~r(8">
+                    <value name="WORD">
+                      <shadow type="text" id="a56,g/^{aUkTTwwOKj._">
+                        <field name="TEXT">ろうそくの火を消す準備はできた？</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="robohon_speakmove" id="qjyBqq3saRerMQGzKaG@">
+                    <field name="MOTION">準備運動</field>
+                    <value name="WORD">
+                      <shadow type="text" id="K7.LaPns7dPHV0((Ac6%">
+                        <field name="TEXT">準備運動するね。</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="robohon_speakmove" id="Wvb^mJ]NqU4WX4:EAssn">
+                        <field name="MOTION">上を向く</field>
+                        <value name="WORD">
+                          <shadow type="text" id="DEwYFrv-z4:jX2|J6![t">
+                            <field name="TEXT">発声練習するね、あ、あ、あ、あ、あ。</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="robohon_sing" id=")SLyW({:U=Gz0H-;/h}o">
+                            <field name="SONG">6</field>
+                            <next>
+                              <block type="robohon_speak" id="^)K_4tvo9,U/WOI~F^~E">
+                                <value name="WORD">
+                                  <shadow type="text" id="/u{/Y3IQ:};gIS{XdELY">
+                                    <field name="TEXT">お誕生日おめでとう。</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="robohon_speak" id="[lqcWSW?8T1F]#1^YcKH">
+                <value name="WORD">
+                  <shadow type="text" id="@hYaVaU+nN|Eb7{Nb6|X">
+                    <field name="TEXT">誰もいないからやめておくね。</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

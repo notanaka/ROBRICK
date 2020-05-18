@@ -175,12 +175,64 @@
                               </block>
                             </statement>
                             <statement name="ELSE">
-                              <block type="robohon_speak" id="Z|mx}0sMM0UC2dg[$ebw">
-                                <value name="WORD">
-                                  <shadow type="text" id="z!`HR)0N`0)/*Nv{!]BJ">
-                                    <field name="TEXT">経度は</field>
-                                  </shadow>
+                              <block type="controls_if" id=",Lw_Kp)Vg[;N^.,N|7pI">
+                                <mutation else="1"></mutation>
+                                <value name="IF0">
+                                  <block type="logic_compare" id="2IO#x/fcQdb=KA`{lLK,">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="qCIuk?$WNZAY970M(LqE">
+                                        <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="N_l4)kJiIYP3wV}mbpS]">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
                                 </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id=")Vmjo;y**Pjvv(wp-,Q5">
+                                    <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                    <value name="VALUE">
+                                      <block type="math_arithmetic" id="r:n#+Z:3E#AIbv,ii.@c">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <shadow type="math_number" id="~p@@GnGR5;IxJyD[1^mK">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="math_number" id="P!Ak=@|C~`L#:)I`=P|/">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="variables_get" id="ID,0UN,`Ncxa{/Qh66Xc">
+                                            <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="robohon_speak" id="Bzp;4V-[-`+o)ap-bL1p">
+                                        <value name="WORD">
+                                          <shadow type="text" id="F{1P}?A,V|J^CmhO$jBc">
+                                            <field name="TEXT">西経は</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <statement name="ELSE">
+                                  <block type="robohon_speak" id="q^AdibFjgS1+pKljZiTk">
+                                    <value name="WORD">
+                                      <shadow type="text" id="S5p$ZX5FGNu)rFiyAo-q">
+                                        <field name="TEXT">東経は</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </statement>
                                 <next>
                                   <block type="procedures_callnoreturn" id="EK0f8Gfb,dAt=!v8FzdM">
                                     <mutation name="数値分解">
@@ -222,7 +274,7 @@
       </block>
     </next>
   </block>
-  <block type="procedures_defnoreturn" id="fUMZiUJ%c2(?sMd]hbiA" x="13" y="813">
+  <block type="procedures_defnoreturn" id="fUMZiUJ%c2(?sMd]hbiA" x="13" y="988">
     <mutation>
       <arg name="x" varid="92Jlk3UTs9XYGR-6wdsl"></arg>
     </mutation>
@@ -526,7 +578,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="SB44FHtjy+p(=JJJ?Nu[" x="13" y="1338">
+  <block type="procedures_defnoreturn" id="SB44FHtjy+p(=JJJ?Nu[" x="13" y="1513">
     <field name="NAME">計算結果</field>
     <comment pinned="false" h="80" w="160">この関数の説明…</comment>
     <statement name="STACK">
@@ -672,7 +724,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="Fs=BRo?YiPd=zT9_{[Fb" x="13" y="1863">
+  <block type="procedures_defnoreturn" id="Fs=BRo?YiPd=zT9_{[Fb" x="13" y="2038">
     <mutation>
       <arg name="x" varid="92Jlk3UTs9XYGR-6wdsl"></arg>
     </mutation>

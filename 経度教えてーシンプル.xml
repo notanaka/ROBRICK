@@ -1,0 +1,230 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="*rfyx@lU-}J1|X/;iln|">取得緯度</variable>
+    <variable type="" id="beDtwD@H2O{H^FH4@M5J">取得経度</variable>
+  </variables>
+  <block type="robohon_listenStart" id="Xuw-mAPq(MPiA[8(xINM" x="-762" y="-188">
+    <value name="KEYWORD">
+      <shadow type="text" id="B414.mUD4x:I_7?h^?m5">
+        <field name="TEXT">ケイドオシエテ</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="robohon_speak" id="#1y9ZPI(VP}NwDieYj=1">
+        <value name="WORD">
+          <shadow type="text" id="P.w5|S5s?TNnLhf2YaTg">
+            <field name="TEXT">今の緯度と経度を話すね</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="variables_set" id="Gm9hEbM:;5zl_M/E:;!K">
+            <field name="VAR" id="*rfyx@lU-}J1|X/;iln|" variabletype="">取得緯度</field>
+            <value name="VALUE">
+              <block type="robohon_latitude" id="j)+9/n73^_TNLvQf,a;["></block>
+            </value>
+            <next>
+              <block type="controls_if" id="o.Yb2![|l-3B-)zWb(j$">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id=")~G3/Pxy4^Ip]A(y@5Ls">
+                    <field name="OP">LT</field>
+                    <value name="A">
+                      <block type="variables_get" id="3o-[h)xw2.@DLxv}yWXW">
+                        <field name="VAR" id="*rfyx@lU-}J1|X/;iln|" variabletype="">取得緯度</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="|A`w8g)KpmZ`F%j2TU7)">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id=";fSYBDEL!U0Ox1B$pqry">
+                    <field name="VAR" id="*rfyx@lU-}J1|X/;iln|" variabletype="">取得緯度</field>
+                    <value name="VALUE">
+                      <block type="math_arithmetic" id="E_*+cVs/bIs7nW2n!s^/">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <shadow type="math_number" id=":O1xEmM[,3(V}.z`$oEA">
+                            <field name="NUM">0</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number" id="XsN`$;~zJ~_bJNZ[@`|(">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get" id="]qx}ysWp%^QmyvG5Tve_">
+                            <field name="VAR" id="*rfyx@lU-}J1|X/;iln|" variabletype="">取得緯度</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="robohon_speak" id="~O|@]#a%8YjsP0Cbh+.-">
+                        <value name="WORD">
+                          <shadow type="text" id="~hVlK-vI755DsrnmG3+,">
+                            <field name="TEXT">南緯</field>
+                          </shadow>
+                          <block type="text_join" id="(;!,#Kywaz2Vk7-l/|cX">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="Lg=p/qcECX)HT-P}Ev=(">
+                                <field name="TEXT">南緯は</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="EO.:a#Zk=:a9~!?zvs%`">
+                                <field name="VAR" id="*rfyx@lU-}J1|X/;iln|" variabletype="">取得緯度</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="robohon_speak" id="g0wmXW~[LNC/JTtq.Jw5">
+                    <value name="WORD">
+                      <shadow type="text" id="~hVlK-vI755DsrnmG3+,">
+                        <field name="TEXT">南緯</field>
+                      </shadow>
+                      <block type="text_join" id="$U6H]]L+AhAUr7E|N[M+">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="{Qs_,l+Yts0D=?68R{9l">
+                            <field name="TEXT">北緯は</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="variables_get" id="lek9efg,Brz3x]RiX8i`">
+                            <field name="VAR" id="*rfyx@lU-}J1|X/;iln|" variabletype="">取得緯度</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="robohon_speak" id="?]LDLa}$yp6zj,f$GFrv">
+                    <value name="WORD">
+                      <shadow type="text" id="!Jj~_*|GyLK7[03g,$|P">
+                        <field name="TEXT">度で、</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="J}6,Iqvx6Y^$!JBEL]6N">
+                        <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                        <value name="VALUE">
+                          <block type="robohon_longitude" id="@{CCC5%L9jn2Y+WMor{b"></block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="_1lHTya@(HdqC/iTJxtI">
+                            <mutation else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare" id="N/`Sejm#Y`Ri:$cANcxz">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="variables_get" id="^1S9SBA9d-1m}sgSn!v)">
+                                    <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="q3X}ICGb_jRgqn6d6K#I">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set" id=":Yg+K^ZG|[OeTJgFu+Y8">
+                                <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                <value name="VALUE">
+                                  <block type="math_arithmetic" id="Mv_6xrNpOEb`(TVb:#`l">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id=";bLJYdo;eEq64OJ`FM6A">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="XsN`$;~zJ~_bJNZ[@`|(">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="variables_get" id="%$dOzNC1vnuL:Vpj6+_U">
+                                        <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="robohon_speak" id="eNqU|bpMUZU09lKD,oPY">
+                                    <value name="WORD">
+                                      <shadow type="text" id="~hVlK-vI755DsrnmG3+,">
+                                        <field name="TEXT">南緯</field>
+                                      </shadow>
+                                      <block type="text_join" id="`YV)ivR3.`?t%V;2IeGc">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id="SP@M(FhBj*D_ejafwjQS">
+                                            <field name="TEXT">西経</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="variables_get" id="uL%AfX[4YG2A5lrvNaH#">
+                                            <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="robohon_speak" id="[@:]dKQ[j0Eyk^Atl;SD">
+                                <value name="WORD">
+                                  <shadow type="text" id="~hVlK-vI755DsrnmG3+,">
+                                    <field name="TEXT">南緯</field>
+                                  </shadow>
+                                  <block type="text_join" id="#|1kd.F9H;SDyO72KF;f">
+                                    <mutation items="2"></mutation>
+                                    <value name="ADD0">
+                                      <block type="text" id="WM$JGL`doD%ziAd+;)*R">
+                                        <field name="TEXT">東経</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="variables_get" id="7LjzSfm$1PdVSZ!AvN}1">
+                                        <field name="VAR" id="beDtwD@H2O{H^FH4@M5J" variabletype="">取得経度</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="robohon_speak" id="1vRg,WZ72lwBB@o`M+|5">
+                                <value name="WORD">
+                                  <shadow type="text" id="]/euI4b^Sv#H%5wxQfWf">
+                                    <field name="TEXT">度だよ。</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
